@@ -166,3 +166,8 @@ Formato: `## [AAAA-MM-DD] tipo | título` (tipos: migracion, playbook, leccion, 
 - Probado: sin cambios → no recarga; perfiles reales del 20 y del 23 de noviembre → 48 nuevas y 1 editada (igual que la revisión manual); Excel reordenado, fila borrada y OP repetida → rechazados.
 - Programador de tareas de Windows, equipo del desarrollador: «Logistica - Recarga razones liberacion», lunes a viernes 16:30, solo con la sesión iniciada (lee el Excel de OneDrive). Primera corrida manual: resultado 0.
 - Rollback: `Unregister-ScheduledTask -TaskName "Logistica - Recarga razones liberacion"`.
+
+## [2026-11-25] decision | Repositorio en GitHub y flujo de ramas
+
+- Repo `FirplakDesarrollador/Logistica` con ramas `main` → `Dev` → `Milton`. Se trabaja y se hace push solo en `Milton`; el desarrollador hace los merge en GitHub.
+- Fuera de git: `.env*` (salvo `.env.example`), `excels-origen/`, `data/` (órdenes con comentarios que traen nombres), `.cache/`, `logs/`, `.claude/settings.local.json`. Revisado antes del primer push: sin secretos ni datos del Excel.
