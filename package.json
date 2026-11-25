@@ -1,0 +1,33 @@
+{
+  "name": "logistica-firplak",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node --max-http-header-size=65536 node_modules/next/dist/bin/next dev -p 3020",
+    "build": "next build",
+    "start": "node --max-http-header-size=65536 node_modules/next/dist/bin/next start -p 3020",
+    "lint": "eslint",
+    "excel:perfil": "node scripts/excel-a-json.mjs",
+    "excel:descargar": "node scripts/descargar-sharepoint.mjs",
+    "excel:traer": "node scripts/traer-excel.mjs"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.119.2",
+    "lucide-react": "^0.577.0",
+    "next": "^16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "recharts": "^3.8.1",
+    "server-only": "^0.0.1",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^16.4.6",
+    "typescript": "^5"
+  }
+}

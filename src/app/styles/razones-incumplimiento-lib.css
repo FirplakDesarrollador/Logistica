@@ -1,0 +1,69 @@
+/* Módulo Razones de incumplimiento de liberación. Solo tokens (docs/manual-identidad-web.md). */
+
+/* Contenedor de las vistas: orden natural del documento (shell.css reordena sus bloques con `order`). */
+.modulo-pagina { display: flex; flex-direction: column; gap: var(--space-5); min-width: 0; }
+.billing-content .modulo-pagina > * { order: 0; }
+
+.modulo-graficos { display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr); }
+@container (min-width: 960px) {
+  .modulo-graficos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.modulo-nota { color: var(--color-text-muted); font-size: .8125rem; margin-top: var(--space-2); max-width: 90ch; }
+.modulo-nota a { color: var(--color-accent-text); font-weight: 600; text-underline-offset: 3px; }
+
+@container (min-width: 1040px) {
+  .modulo-metricas-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Tablas del módulo (el panel no usa .billing-table-panel porque shell.css lo oculta fuera de la vista de detalle). */
+.modulo-tabla-panel { overflow: hidden; padding: var(--space-5) 0 0; }
+@media (min-width: 640px) {
+  .modulo-tabla-panel { padding: var(--space-5) 0 0; }
+}
+.modulo-tabla-panel > .datos-vacio { border-top: 1px solid var(--color-border); margin-top: var(--space-4); }
+.billing-data-table.modulo-tabla tbody tr, .billing-data-table.modulo-tabla-simple tbody tr { cursor: default; }
+.billing-data-table.modulo-tabla-simple { min-width: 560px; }
+.billing-panel > .billing-table-scroll .modulo-tabla-simple th:first-child, .billing-panel > .billing-table-scroll .modulo-tabla-simple td:first-child { padding-left: 0; }
+.modulo-tabla td { vertical-align: top; padding-top: var(--space-3); padding-bottom: var(--space-3); }
+.modulo-celda-comentario { line-height: 1.45; max-width: 420px; min-width: 240px; white-space: normal !important; }
+.modulo-celda-razon { max-width: 320px; min-width: 200px; white-space: normal !important; }
+.modulo-orden-link { color: var(--color-text); font-weight: 600; text-decoration: underline; text-decoration-color: var(--color-border-control); text-underline-offset: 3px; }
+.modulo-orden-link:hover { color: var(--color-text-strong); text-decoration-color: currentColor; }
+.modulo-sin-marca { color: var(--color-text-muted); }
+.modulo-original { font-variant-ligatures: none; white-space: pre-wrap; }
+.modulo-marcas { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.modulo-marca { background: rgb(138 100 32 / .1); border-radius: var(--radius-pill); color: var(--warning); display: inline-block; font-size: .75rem; font-weight: 600; padding: 2px 10px; white-space: nowrap; }
+.modulo-origen { border-radius: var(--radius-pill); display: inline-block; font-size: .75rem; font-weight: 600; padding: 2px 10px; white-space: nowrap; }
+.modulo-origen.historico { background: var(--sage-50); color: var(--sage-800); }
+.modulo-origen.nuevo { background: rgb(61 110 85 / .1); color: var(--success); }
+.modulo-origen.editado { background: var(--navy-50); color: var(--navy-700); }
+
+/* Pestañas como enlaces (calidad del registro) */
+.modulo-tab { align-items: center; border-bottom: 2px solid transparent; color: var(--color-text-muted); display: inline-flex; font-size: .875rem; font-weight: 500; min-height: 44px; text-decoration: none; white-space: nowrap; }
+.modulo-tab:hover { color: var(--color-text); }
+.modulo-tab.active { border-color: var(--color-accent); color: var(--color-text); font-weight: 600; }
+.modulo-tab span { background: var(--sage-50); border-radius: var(--radius-pill); color: var(--sage-800); font-size: .75rem; font-variant-numeric: tabular-nums; margin-left: 6px; padding: 1px var(--space-2); }
+
+/* Formulario de registro */
+.registro { display: flex; flex-direction: column; gap: var(--space-4); max-width: 880px; }
+.form-registro { display: flex; flex-direction: column; gap: var(--space-5); }
+.form-grid { align-items: start; display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr); }
+.form-estado-orden { align-items: center; display: flex; min-height: 0; }
+@container (min-width: 720px) {
+  .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .form-estado-orden { min-height: 44px; padding-top: 30px; }
+}
+
+/* Carga y error */
+.modulo-cargando { display: flex; flex-direction: column; gap: var(--space-5); }
+.modulo-sk-titulo { height: 72px; max-width: 520px; }
+.modulo-sk-tarjetas { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.modulo-sk-tarjeta { border-radius: var(--radius-md); height: 132px; }
+.modulo-sk-panel { border-radius: var(--radius-md); height: 360px; }
+.modulo-error { align-items: flex-start; display: flex; flex-direction: column; gap: var(--space-4); }
+.modulo-error .billing-alert button { align-items: center; display: inline-flex; gap: var(--space-1); }
+
+/* Órdenes eliminadas */
+.eliminadas-numero { color: var(--color-text); font-variant-numeric: tabular-nums; font-weight: 600; }
+.eliminadas-accion { align-items: flex-end; display: flex; flex-direction: column; gap: var(--space-1); }
+.eliminadas-accion .form-error { font-size: .75rem; max-width: 220px; }

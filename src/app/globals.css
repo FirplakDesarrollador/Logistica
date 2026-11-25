@@ -1,0 +1,135 @@
+/*
+ * Tokens y estilos base. Fuente de verdad: docs/manual-identidad-web.md
+ * Los componentes usan tokens semánticos (--color-*), nunca HEX directos.
+ * Puntos de corte mobile-first: 640px (tablet), 1024px (escritorio), 1440px (amplio).
+ */
+
+:root {
+  /* Marca */
+  --navy-900: #1F2B37;
+  --navy-700: #324354;
+  --navy-50: #EEF1F4;
+  --sage-800: #46555A;
+  --sage-700: #5A6B6D;
+  --sage-500: #7B8E90;
+  --sage-300: #B4C1C2;
+  --sage-50: #EFF2F2;
+  --crema-100: #F6F3EE; /* Solo texto sobre navy; no se usa como fondo (decisión de Mercadeo) */
+  --gray-100: #F4F6F8;
+  --gray-200: #E3E7EB;
+  --gray-600: #5F6B73;
+  --white: #FFFFFF;
+  --black: #000000; /* Complementario: logo monocromático y detalles; no para texto de interfaz */
+
+  /* Funcionales */
+  --success: #3D6E55;
+  --warning: #8A6420;
+  --danger: #9E4335;
+
+  /* Semánticos */
+  --color-bg: var(--white);
+  --color-surface: var(--white);
+  --color-surface-muted: var(--gray-100);
+  --color-text: var(--navy-700);
+  --color-text-strong: var(--navy-900);
+  --color-text-muted: var(--gray-600);
+  --color-accent: var(--sage-500);
+  --color-accent-text: var(--sage-700);
+  --color-border: var(--gray-200);
+  --color-border-control: var(--sage-500);
+  --color-focus: var(--sage-700);
+  --color-nav-bg: var(--navy-700);
+  --color-nav-text: var(--crema-100);
+  --color-nav-text-muted: rgb(246 243 238 / .72);
+  --color-on-dark-accent: var(--sage-300);
+  --color-overlay: rgb(31 43 55 / .45);
+
+  /* Tipografía */
+  --font-sans: var(--font-montserrat), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --text-display: clamp(2.5rem, 1.6rem + 3.6vw, 4rem);
+  --text-h1: clamp(1.875rem, 1.4rem + 2vw, 3rem);
+  --text-h2: clamp(1.0625rem, 1rem + .35vw, 1.25rem);
+  --text-kpi: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+
+  /* Espaciado */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* Forma */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgb(50 67 84 / .06);
+  --shadow-md: 0 8px 24px rgb(50 67 84 / .08);
+  --shadow-lg: 0 16px 48px rgb(50 67 84 / .14);
+
+  /* Movimiento */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+  --ease-in: cubic-bezier(.4, 0, 1, 1);
+
+  /* Layout */
+  --sidebar-width: 248px;
+  --content-max: 1440px;
+  --control-height: 44px;
+}
+
+@media (min-width: 1024px) {
+  :root { --control-height: 40px; }
+}
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+html, body { margin: 0; min-height: 100%; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: .9375rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p { margin: 0; }
+
+button, input, select, textarea { color: inherit; font: inherit; }
+button { cursor: pointer; }
+button:disabled, select:disabled, input:disabled { cursor: not-allowed; }
+
+img, svg { display: block; }
+
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+/* Logotipo: imágenes recortadas, sin márgenes negativos; el área de seguridad la da el contenedor. */
+.brand-logo { height: auto; max-width: 100%; }
+
+/* Patrón compartido para el monograma de marca de agua */
+.brand-peak { pointer-events: none; position: absolute; z-index: -1; }
+
+/* Skeleton compartido */
+@keyframes skeleton-pulse { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slide-in-right { from { transform: translateX(100%); } to { transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}

@@ -1,0 +1,37 @@
+/* Estilos propios de Logística. Solo tokens de globals.css (docs/manual-identidad-web.md). */
+
+/* Formulario del login demo */
+.login-form { display: flex; flex-direction: column; gap: var(--space-4); }
+.login-field { display: flex; flex-direction: column; gap: var(--space-2); }
+.login-field > span:first-child { color: var(--color-text); font-size: .8125rem; font-weight: 600; }
+.login-field input { background: var(--color-surface); border: 1px solid var(--color-border-control); border-radius: var(--radius-sm); min-height: 44px; padding: 0 var(--space-4); transition: border-color var(--duration-fast) var(--ease-out); width: 100%; }
+.login-field input:focus-visible { border-color: var(--color-focus); outline: 2px solid var(--color-focus); outline-offset: 1px; }
+.login-password { display: block; position: relative; }
+.login-password input { padding-right: 48px; }
+.login-password button { align-items: center; background: none; border: 0; border-radius: var(--radius-sm); color: var(--color-text-muted); display: flex; height: 44px; justify-content: center; position: absolute; right: 0; top: 0; width: 44px; }
+.login-password button:hover { color: var(--color-text); }
+.login-submit { justify-content: space-between; margin-top: var(--space-2); }
+.login-form .login-error, .login-form .login-security { margin-top: 0; }
+
+/* Portal: estado de cada módulo */
+.access-status { align-items: center; border-radius: var(--radius-pill); display: inline-flex; font-size: .75rem; font-weight: 600; gap: var(--space-1); margin-top: var(--space-2); padding: 2px var(--space-3); }
+.access-status.migrado { background: rgb(61 110 85 / .1); color: var(--success); }
+.access-status.en-migracion { background: rgb(138 100 32 / .1); color: var(--warning); }
+
+/* Estado vacío del catálogo */
+.portal-empty { align-items: center; background: var(--color-surface); border: 1px dashed var(--color-border-control); border-radius: var(--radius-md); display: flex; flex-direction: column; gap: var(--space-3); isolation: isolate; overflow: hidden; padding: var(--space-7) var(--space-5); position: relative; text-align: center; }
+.portal-empty .brand-peak { bottom: -40px; color: var(--navy-700); opacity: .04; right: -20px; width: 220px; }
+.portal-empty > svg { color: var(--color-accent-text); }
+.portal-empty h3 { color: var(--color-text); font-size: 1.125rem; font-weight: 500; margin: 0; }
+.portal-empty p { color: var(--color-text-muted); font-size: .875rem; max-width: 56ch; }
+
+/* Hoja de ruta de la migración */
+.roadmap { counter-reset: paso; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); list-style: none; margin: 0; padding: 0; }
+.roadmap li { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5); }
+.roadmap li::before { color: var(--color-accent-text); content: "PASO " counter(paso); counter-increment: paso; font-size: .75rem; font-weight: 600; letter-spacing: .14em; }
+.roadmap strong { color: var(--color-text); font-size: 1rem; font-weight: 500; }
+.roadmap span { color: var(--color-text-muted); font-size: .875rem; }
+
+/* Cierre de sesión en el encabezado del portal */
+.portal-header form { margin-left: auto; }
+@media (min-width: 1024px) { .portal-header form { margin-left: 0; } }

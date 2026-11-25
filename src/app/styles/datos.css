@@ -1,0 +1,115 @@
+/* Piezas reutilizables de datos y formularios (src/components/datos, graficos, formulario).
+   Solo tokens de globals.css (docs/manual-identidad-web.md). Registradas en llm-wiki/playbook-migracion.md. */
+
+.sr-only { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }
+
+/* ── Filtros en borrador (FiltrosBorrador) ── */
+.datos-filtros { display: flex; flex-direction: column; }
+.datos-filtros-fila { align-items: stretch; display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.datos-filtros-busqueda { flex: 1 1 280px; padding-left: var(--space-3); }
+.datos-filtros-acciones { align-items: center; display: flex; flex: 1 1 auto; flex-wrap: wrap; gap: var(--space-2); justify-content: flex-end; }
+.datos-filtros-acciones .billing-primary-button { flex: 1 1 auto; }
+.datos-filtros-avanzados[data-abierto="false"] { display: none; }
+.billing-advanced-filter input[type="date"] { background: var(--color-surface); border: 1px solid var(--color-border-control); border-radius: var(--radius-sm); color: var(--color-text); font-size: .875rem; font-weight: 500; min-height: var(--control-height); padding: 0 var(--space-3); width: 100%; }
+.billing-advanced-filter input[type="date"]:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 1px; }
+.billing-advanced-filter select:disabled, .billing-advanced-filter input:disabled { opacity: .45; }
+.billing-reset-button:disabled { opacity: .45; text-decoration: none; }
+.datos-filtros-chips { align-items: center; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); padding-top: var(--space-3); }
+.datos-chip { align-items: center; background: var(--sage-50); border: 1px solid transparent; border-radius: var(--radius-pill); color: var(--sage-800); display: inline-flex; font-size: .8125rem; gap: var(--space-2); min-height: 36px; padding: 0 var(--space-3); transition: background var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
+.datos-chip:hover { background: var(--navy-50); border-color: var(--color-border-control); }
+.datos-chip strong { color: var(--color-text); font-weight: 600; }
+.datos-filtros-aviso { color: var(--warning); font-size: .8125rem; font-weight: 500; }
+
+@media (min-width: 640px) {
+  .datos-filtros-toggle { display: none; }
+  .datos-filtros-avanzados[data-abierto="false"] { display: grid; }
+  .datos-filtros-acciones { flex: none; }
+  .datos-filtros-acciones .billing-primary-button { flex: none; }
+}
+@container (min-width: 1040px) {
+  .datos-filtros .billing-advanced-filters { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+/* ── Paginación (Paginacion) ── */
+.datos-pagina-boton { align-items: center; background: var(--color-surface); border: 1px solid var(--color-border-control); border-radius: var(--radius-sm); color: var(--color-text); display: flex; height: var(--control-height); justify-content: center; min-width: 44px; text-decoration: none; transition: background var(--duration-fast) var(--ease-out); }
+a.datos-pagina-boton:hover { background: var(--navy-50); }
+.datos-pagina-boton[aria-disabled="true"] { cursor: not-allowed; opacity: .45; }
+
+/* ── Gráfico de barras (GraficoBarras) ── */
+.datos-grafico { margin-top: var(--space-3); }
+.datos-grafico-area { width: 100%; }
+.datos-grafico-tabla { margin-top: var(--space-3); }
+.datos-grafico-tabla summary { color: var(--color-accent-text); cursor: pointer; font-size: .8125rem; font-weight: 500; min-height: 44px; display: flex; align-items: center; }
+.datos-grafico-tabla summary:hover { text-decoration: underline; text-underline-offset: 3px; }
+.datos-grafico-tabla table { border-collapse: collapse; font-size: .8125rem; font-variant-numeric: tabular-nums; width: 100%; }
+.datos-grafico-tabla th, .datos-grafico-tabla td { border-bottom: 1px solid var(--color-border); padding: var(--space-2) 0; text-align: left; }
+.datos-grafico-tabla thead th { color: var(--color-text-muted); font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.datos-grafico-tabla tbody th { font-weight: 500; }
+.datos-grafico-tabla td, .datos-grafico-tabla thead th:last-child { text-align: right; }
+
+/* ── Estado vacío (EstadoVacio) ── */
+.datos-vacio { align-items: center; color: var(--color-text-muted); display: flex; flex-direction: column; font-size: .875rem; gap: var(--space-2); isolation: isolate; overflow: hidden; padding: var(--space-7) var(--space-4); position: relative; text-align: center; }
+.datos-vacio .brand-peak { bottom: -40px; color: var(--navy-700); opacity: .04; right: -20px; width: 200px; }
+.datos-vacio > svg { color: var(--color-accent); }
+.datos-vacio strong { color: var(--color-text); font-size: .9375rem; font-weight: 600; }
+.datos-vacio .billing-secondary-button { margin-top: var(--space-2); }
+
+/* ── Formularios (Campo) ── */
+.form-campo { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.form-campo > label { color: var(--color-text); font-size: .875rem; font-weight: 600; }
+.form-obligatorio { color: var(--color-text-muted); font-weight: 500; }
+.form-campo input, .form-campo select, .form-campo textarea { background: var(--color-surface); border: 1px solid var(--color-border-control); border-radius: var(--radius-sm); color: var(--color-text); font-size: .9375rem; min-height: 44px; padding: 0 var(--space-3); transition: border-color var(--duration-fast) var(--ease-out); width: 100%; }
+.form-campo textarea { line-height: 1.5; padding: var(--space-3); resize: vertical; }
+.form-campo select { appearance: none; background: var(--color-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%235A6B6D' stroke-width='2'%3E%3Cpath d='m2 4.5 4 4 4-4'/%3E%3C/svg%3E") no-repeat right var(--space-3) center; padding-right: var(--space-6); }
+.form-campo input:hover, .form-campo select:hover, .form-campo textarea:hover { border-color: var(--sage-700); }
+.form-campo input:focus-visible, .form-campo select:focus-visible, .form-campo textarea:focus-visible { border-color: var(--color-focus); outline: 2px solid var(--color-focus); outline-offset: 1px; }
+.form-campo.con-error input, .form-campo.con-error select, .form-campo.con-error textarea { border-color: var(--danger); }
+.form-error { align-items: flex-start; color: var(--danger); display: flex; font-size: .8125rem; font-weight: 500; gap: var(--space-2); margin: 0; }
+.form-error svg { flex: none; margin-top: 2px; }
+.form-ayuda { color: var(--color-text-muted); font-size: .8125rem; margin: 0; }
+.form-casilla { align-items: flex-start; cursor: pointer; display: flex; gap: var(--space-3); min-height: 44px; padding: var(--space-2) 0; }
+.form-casilla input { accent-color: var(--navy-700); flex: none; height: 22px; margin: 2px 0 0; width: 22px; }
+.form-casilla span { display: flex; flex-direction: column; gap: 2px; }
+.form-casilla strong { color: var(--color-text); font-size: .9375rem; font-weight: 600; }
+.form-casilla small { color: var(--color-text-muted); font-size: .8125rem; }
+.form-aviso { align-items: flex-start; border: 1px solid; border-radius: var(--radius-sm); display: flex; flex-wrap: wrap; font-size: .875rem; gap: var(--space-3); padding: var(--space-3) var(--space-4); }
+.form-aviso > svg { flex: none; margin-top: 1px; }
+.form-aviso > span { flex: 1; min-width: 200px; }
+.form-aviso a { color: inherit; font-weight: 600; text-underline-offset: 3px; }
+.form-aviso.exito { background: rgb(61 110 85 / .1); border-color: rgb(61 110 85 / .3); color: var(--success); }
+.form-aviso.error { background: rgb(158 67 53 / .08); border-color: rgb(158 67 53 / .25); color: var(--danger); }
+.form-aviso.info { background: var(--navy-50); border-color: var(--color-border); color: var(--color-text); }
+.form-chip { align-items: center; background: var(--sage-50); border-radius: var(--radius-pill); color: var(--sage-800); display: inline-flex; font-size: .8125rem; font-weight: 600; gap: var(--space-2); padding: var(--space-1) var(--space-3); }
+.form-chip.nueva { background: rgb(61 110 85 / .1); color: var(--success); }
+.form-chip.editando { background: rgb(138 100 32 / .1); color: var(--warning); }
+.form-chip.error { background: rgb(158 67 53 / .08); color: var(--danger); font-weight: 500; }
+.form-acciones { display: flex; flex-direction: column-reverse; gap: var(--space-2); }
+@media (min-width: 640px) {
+  .form-acciones { flex-direction: row; justify-content: flex-end; }
+}
+
+/* ── Acciones destructivas (manual 7.3: botón Peligro, siempre con confirmación) ── */
+.boton-peligro, .boton-peligro-secundario { align-items: center; border-radius: var(--radius-sm); display: inline-flex; font-size: .875rem; font-weight: 500; gap: var(--space-2); justify-content: center; min-height: var(--control-height); padding: 0 var(--space-4); transition: background var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); white-space: nowrap; }
+.boton-peligro { background: var(--danger); border: 1px solid var(--danger); color: var(--white); }
+.boton-peligro:hover:not(:disabled) { background: color-mix(in srgb, var(--danger) 88%, var(--black)); }
+.boton-peligro-secundario { background: var(--color-surface); border: 1px solid rgb(158 67 53 / .45); color: var(--danger); }
+.boton-peligro-secundario:hover:not(:disabled) { background: rgb(158 67 53 / .06); border-color: var(--danger); }
+.boton-peligro:disabled, .boton-peligro-secundario:disabled { opacity: .45; }
+
+.registro-eliminar { align-items: center; border-top: 1px solid var(--color-border); color: var(--color-text-muted); display: flex; flex-direction: column; font-size: .875rem; gap: var(--space-3); margin-top: var(--space-5); padding-top: var(--space-5); text-align: center; }
+@media (min-width: 640px) { .registro-eliminar { flex-direction: row; justify-content: space-between; text-align: left; } }
+
+/* ── Diálogo modal (<dialog>) ── */
+.dialogo { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); color: var(--color-text); margin: auto; max-width: min(520px, calc(100vw - 2 * var(--space-4))); padding: 0; width: 100%; }
+.dialogo::backdrop { background: var(--color-overlay); }
+.dialogo[open] { animation: fade-in var(--duration-base) var(--ease-out); }
+.dialogo-cuerpo { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-5); }
+.dialogo-encabezado { align-items: flex-start; display: flex; gap: var(--space-3); justify-content: space-between; }
+.dialogo-encabezado h2 { font-size: clamp(1.125rem, 1rem + .5vw, 1.375rem); font-weight: 500; line-height: 1.3; }
+.dialogo-peligro .dialogo-encabezado h2 { color: var(--danger); }
+.dialogo-cerrar { align-items: center; background: none; border: 0; border-radius: var(--radius-sm); color: var(--color-text-muted); display: flex; flex: none; height: 44px; justify-content: center; margin: calc(-1 * var(--space-2)) calc(-1 * var(--space-2)) 0 0; width: 44px; }
+.dialogo-cerrar:hover { background: var(--navy-50); color: var(--color-text); }
+.dialogo-descripcion { color: var(--color-text-muted); font-size: .9375rem; line-height: 1.6; }
+.dialogo-formulario { display: flex; flex-direction: column; gap: var(--space-4); }
+.dialogo-acciones { display: flex; flex-direction: column-reverse; gap: var(--space-2); }
+@media (min-width: 640px) { .dialogo-acciones { flex-direction: row; justify-content: flex-end; } .dialogo-cuerpo { padding: var(--space-6); } }
