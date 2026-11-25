@@ -12,6 +12,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
+## Git y ramas
+
+- Repo: `https://github.com/FirplakDesarrollador/Logistica.git`. Ramas: `main` → `Dev` → `Milton`.
+- **Se trabaja siempre en `Milton`** y se hace push solo a `origin Milton`. El desarrollador hace los merge (Milton → Dev → main) en GitHub.
+- Nunca hacer merge, push a `Dev` o `main`, ni crear o unir pull requests por cuenta propia.
+- No se versionan `.env*` (salvo `.env.example`), `excels-origen/`, `data/`, `.cache/` ni `logs/`.
+
 ## Antes de trabajar
 
 1. Lee [`llm-wiki/index.md`](llm-wiki/index.md) y abre solo las páginas relacionadas con la tarea.
