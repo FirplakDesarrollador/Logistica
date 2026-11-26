@@ -1,14 +1,16 @@
-import { ClipboardList, type LucideIcon } from "lucide-react";
+import { ArrowRightLeft, ClipboardList, type LucideIcon } from "lucide-react";
 
 // Catálogo de módulos: cada Excel migrado se registra aquí (paso 6 del playbook de migración).
 // Así aparece en el portal y en el menú lateral. Ver llm-wiki/playbook-migracion.md.
-export type EstadoModulo = "en-migracion" | "migrado";
+// "en-desarrollo": el módulo existe en el portal pero todavía no tiene Excel migrado ni funciones.
+export type EstadoModulo = "en-desarrollo" | "en-migracion" | "migrado";
 
 export type Modulo = {
   slug: string;
   titulo: string;
   descripcion: string;
-  excelOrigen: string;
+  /** Excel del que sale el módulo; vacío mientras está en desarrollo. */
+  excelOrigen?: string;
   estado: EstadoModulo;
   href: string;
   icon: LucideIcon;
@@ -24,9 +26,18 @@ export const modulos: Modulo[] = [
     href: "/razones-incumplimiento-lib",
     icon: ClipboardList,
   },
+  {
+    slug: "picking-traslados",
+    titulo: "Picking y Traslados",
+    descripcion: "Módulo en desarrollo. Pronto estará disponible en la plataforma.",
+    estado: "en-desarrollo",
+    href: "/picking-traslados",
+    icon: ArrowRightLeft,
+  },
 ];
 
 export const estadoLabel: Record<EstadoModulo, string> = {
+  "en-desarrollo": "En desarrollo",
   "en-migracion": "En migración",
   migrado: "Migrado",
 };
