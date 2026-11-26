@@ -17,6 +17,7 @@
 .access-status { align-items: center; border-radius: var(--radius-pill); display: inline-flex; font-size: .75rem; font-weight: 600; gap: var(--space-1); margin-top: var(--space-2); padding: 2px var(--space-3); }
 .access-status.migrado { background: rgb(61 110 85 / .1); color: var(--success); }
 .access-status.en-migracion { background: rgb(138 100 32 / .1); color: var(--warning); }
+.access-status.en-desarrollo { background: var(--sage-50); color: var(--sage-800); }
 
 /* Estado vacío del catálogo */
 .portal-empty { align-items: center; background: var(--color-surface); border: 1px dashed var(--color-border-control); border-radius: var(--radius-md); display: flex; flex-direction: column; gap: var(--space-3); isolation: isolate; overflow: hidden; padding: var(--space-7) var(--space-5); position: relative; text-align: center; }
@@ -35,3 +36,12 @@
 /* Cierre de sesión en el encabezado del portal */
 .portal-header form { margin-left: auto; }
 @media (min-width: 1024px) { .portal-header form { margin-left: 0; } }
+
+/* Módulo en desarrollo (estado vacío de marca: pico de agua, título, explicación y acción) */
+.modulo-en-desarrollo { align-items: center; display: flex; flex-direction: column; gap: var(--space-3); isolation: isolate; overflow: hidden; padding: var(--space-8) var(--space-5); position: relative; text-align: center; }
+.modulo-en-desarrollo .brand-peak { bottom: -48px; color: var(--navy-700); opacity: .04; right: -24px; width: 260px; }
+.modulo-en-desarrollo > svg { color: var(--color-accent-text); }
+.modulo-en-desarrollo .access-status { margin-top: 0; }
+.modulo-en-desarrollo h2 { color: var(--color-text); font-size: clamp(1.125rem, 1rem + .5vw, 1.375rem); font-weight: 500; }
+.modulo-en-desarrollo p { color: var(--color-text-muted); font-size: .9375rem; max-width: 56ch; }
+.modulo-en-desarrollo .billing-secondary-button { margin-top: var(--space-2); }

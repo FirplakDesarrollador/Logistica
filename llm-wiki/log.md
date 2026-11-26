@@ -171,3 +171,8 @@ Formato: `## [AAAA-MM-DD] tipo | título` (tipos: migracion, playbook, leccion, 
 
 - Repo `FirplakDesarrollador/Logistica` con ramas `main` → `Dev` → `Milton`. Se trabaja y se hace push solo en `Milton`; el desarrollador hace los merge en GitHub.
 - Fuera de git: `.env*` (salvo `.env.example`), `excels-origen/`, `data/` (órdenes con comentarios que traen nombres), `.cache/`, `logs/`, `.claude/settings.local.json`. Revisado antes del primer push: sin secretos ni datos del Excel.
+
+## [2026-11-26] ux | Módulo «Picking y Traslados» en desarrollo
+
+- Nuevo estado de módulo `en-desarrollo` (chip sage «En desarrollo» en el portal); `excelOrigen` es opcional para módulos sin Excel todavía.
+- Ruta `/picking-traslados` con el shell de los módulos y una página «Este módulo está en desarrollo». Sin datos ni funciones hasta que el desarrollador indique qué Excel se migra.
